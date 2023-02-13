@@ -1,7 +1,7 @@
 name: vs_media_picker
-description: A new Flutter package project.
+description: Customized gallery type view media picker for images and videos.
 version: 0.0.1
-homepage:
+homepage: https://github.com/VickySalunkhe/vs_media_picker
 
 environment:
   sdk: '>=2.18.5 <3.0.0'

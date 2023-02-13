@@ -14,7 +14,7 @@ VS_Media_Picker is based in [photo_widget](https://pub.dev/packages/photo_widget
 [❌] take picture or video from camera
 
 ## Demo
-<img src="https://github.com/VickySalunkhe/vs_media_picker/media/demo.gif" alt="showcase gif" title="preset view" width="200"/>
+<img src="https://github.com/VickySalunkhe/vs_media_picker/blob/master/media/demo.gif" alt="showcase gif" title="preset view" width="200"/>
 
 ## Installation
 1) This package has only tested in android, add `vs_media_picker: 0.0.1` in your `pubspec.yaml`
