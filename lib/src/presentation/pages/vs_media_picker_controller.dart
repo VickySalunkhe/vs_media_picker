@@ -54,6 +54,20 @@ mixin PhotoDataController on ChangeNotifier {
 }
 
 class VSMediaPickerController extends ChangeNotifier with PhotoDataController {
+  /// load video
+  bool onlyVideos = false;
+  set setOnlyVideos(bool val) {
+    onlyVideos = val;
+    notifyListeners();
+  }
+
+  /// load images
+  bool onlyImages = false;
+  set setOnlyImages(bool val) {
+    onlyImages = val;
+    notifyListeners();
+  }
+
   /// Notification when max is modified.
   final maxNotifier = ValueNotifier(0);
   int get max => maxNotifier.value;

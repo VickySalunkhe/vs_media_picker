@@ -82,7 +82,13 @@ class GalleryFunctions {
   }
 
   static _refreshPathList(setState, VSMediaPickerController provider) {
-    PhotoManager.getAssetPathList(type: RequestType.all).then((pathList) {
+    PhotoManager.getAssetPathList(
+            type: provider.onlyVideos
+                ? RequestType.video
+                : provider.onlyImages
+                    ? RequestType.image
+                    : RequestType.all)
+        .then((pathList) {
       /// don't delete setState
       setState(() {
         provider.resetPathList(pathList);

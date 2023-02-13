@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:photo_manager/photo_manager.dart';
@@ -123,6 +125,7 @@ class _VSMediaPickerState extends State<VSMediaPicker> {
 
   @override
   void initState() {
+    provider.onPickMax.addListener(onPickMax);
     _getPermission();
     super.initState();
   }
@@ -146,10 +149,20 @@ class _VSMediaPickerState extends State<VSMediaPicker> {
     }
   }
 
+  void onPickMax() {
+    showToast("Already pick ${provider.max} items.");
+  }
+
+  void isSinglePickMode() {
+    provider.singlePickMode = widget.singlePick;
+  }
+
   @override
   Widget build(BuildContext context) {
     provider.max = widget.maxPickImages;
     provider.singlePickMode = widget.singlePick;
+    provider.setOnlyImages = widget.onlyImages;
+    provider.setOnlyVideos = widget.onlyVideos;
 
     return OKToast(
       child: NotificationListener<OverscrollIndicatorNotification>(

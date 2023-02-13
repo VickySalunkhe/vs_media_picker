@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:vs_media_picker/src/presentation/pages/vs_media_picker_controller.dart';
@@ -177,9 +179,10 @@ class GalleryGridViewState extends State<GalleryGridView> {
             );
           }
           final asset = snapshot.data![0];
-          cacheMap[index] = asset;
 
           /// thumbnail widget
+          cacheMap[index] = asset;
+
           return ThumbnailWidget(
             asset: asset,
             index: index,

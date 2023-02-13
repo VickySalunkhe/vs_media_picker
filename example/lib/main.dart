@@ -142,6 +142,7 @@ class _ExampleState extends State<Example> {
                     childAspectRatio: 1,
                     crossAxisCount: 3,
                     thumbnailQuality: 200,
+                    onlyImages: true,
                     thumbnailBoxFix: BoxFit.cover,
                     singlePick: _singlePick,
                     gridViewBackgroundColor: Colors.grey[900],
@@ -179,7 +180,6 @@ class _ExampleState extends State<Example> {
                                         setState(() {
                                           _singlePick = !_singlePick;
                                         });
-                                        debugPrint(_singlePick.toString());
                                       },
                                       child: AnimatedContainer(
                                         duration:
