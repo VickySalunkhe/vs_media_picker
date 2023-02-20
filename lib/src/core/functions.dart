@@ -90,9 +90,13 @@ class GalleryFunctions {
                     : RequestType.all)
         .then((pathList) {
       /// don't delete setState
-      setState(() {
-        provider.resetPathList(pathList);
-      });
+      try {
+        setState(() {
+          provider.resetPathList(pathList);
+        });
+      } catch (e) {
+        //
+      }
     });
   }
 
