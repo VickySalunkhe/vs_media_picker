@@ -1,7 +1,8 @@
-## 1.0.0
+## 1.0.1
 - Packages Updated
 - Supports Null Safety
 - Fixed Bugs
+- Example updated
 
 ## 0.0.3
 - Fixed minor bugs

@@ -35,7 +35,50 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Example(),
+      home: const ViewMedia(),
+    );
+  }
+}
+
+class ViewMedia extends StatefulWidget {
+  const ViewMedia({Key? key}) : super(key: key);
+
+  @override
+  State<ViewMedia> createState() => _ViewMediaState();
+}
+
+class _ViewMediaState extends State<ViewMedia> {
+  PickedAssetModel? data;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: ListView(
+        children: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute<PickedAssetModel>(
+                  builder: (BuildContext context) => const Example(),
+                ))
+                    .then((value) {
+                  if (value != null) data = value;
+                  setState(() {});
+                });
+              },
+              child: const Text(
+                "Click to select image",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              )),
+          const SizedBox(height: 30),
+          data == null
+              ? const SizedBox()
+              : SizedBox(
+                  height: 500,
+                  child: Image.file(File(data!.path!)),
+                )
+        ],
+      ),
     );
   }
 }
@@ -55,6 +98,17 @@ class _ExampleState extends State<Example> {
       child: Consumer<PickerDataProvider>(
         builder: (context, media, _) {
           return Scaffold(
+            appBar: AppBar(actions: [
+              IconButton(
+                  onPressed: () {
+                    if (media.pickedFile.isEmpty) {
+                      const SnackBar(content: Text("Media File Not Selected"));
+                    } else {
+                      Navigator.of(context).pop(media.pickedFile[0]);
+                    }
+                  },
+                  icon: const Icon(Icons.fork_left))
+            ]),
             body: Column(
               children: [
                 Container(

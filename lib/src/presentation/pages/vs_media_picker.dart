@@ -136,9 +136,9 @@ class _VSMediaPickerState extends State<VSMediaPicker> {
 
   @override
   void dispose() {
-    if (mounted) {
+    if (mounted && provider != null) {
       /// clear all controller list
-      provider.onPickMax.removeListener(GalleryFunctions.onPickMax(provider));
+      provider.onPickMax.removeListener;
       provider.pickedFile.clear();
       provider.picked.clear();
       provider.pathList.clear();
