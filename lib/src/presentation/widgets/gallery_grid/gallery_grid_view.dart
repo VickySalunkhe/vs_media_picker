@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:vs_media_picker/src/presentation/pages/vs_media_picker_controller.dart';

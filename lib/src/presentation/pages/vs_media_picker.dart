@@ -1,7 +1,5 @@
 // ignore_for_file: unnecessary_null_comparison
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:photo_manager/photo_manager.dart';

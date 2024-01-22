@@ -1,18 +1,19 @@
 name: vs_media_picker
 description: Customized gallery type view media picker for images and videos.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/VickySalunkhe/vs_media_picker
 
 environment:
-  sdk: '>=2.18.5 <3.0.0'
+  sdk: '>=2.15.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   
-  photo_manager: ^2.5.2
+  photo_manager: ^3.0.0-dev.5
   oktoast: ^3.3.1
+
 
 dev_dependencies:
   flutter_test:

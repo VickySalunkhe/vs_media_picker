@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:better_video_player/better_video_player.dart';
-import 'package:example/src/provider/imageProvider.dart';
+// import 'package:better_video_player/better_video_player.dart';
+import 'package:example/src/provider/image_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vs_media_picker/vs_media_picker.dart';
@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 void main() {
-  Paint.enableDithering = true;
+  // Paint.enableDithering = true;
   WidgetsFlutterBinding.ensureInitialized();
   Provider.debugCheckInvalidValueType = null;
   SystemChrome.setPreferredOrientations(
@@ -25,7 +25,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Example extends StatefulWidget {
-  const Example({Key key}) : super(key: key);
+  const Example({Key? key}) : super(key: key);
 
   @override
   State<Example> createState() => _ExampleState();
@@ -102,34 +102,35 @@ class _ExampleState extends State<Example> {
                                     enablePanAlways: true,
                                     maxScale: 2.0,
                                     minScale: 1.0,
-                                    child: Image.file(File(data.path)),
+                                    child: Image.file(File(data.path!)),
                                   ),
                                 );
                               }
 
                               /// show video
                               else {
-                                if (mounted) {
-                                  return AspectRatio(
-                                    aspectRatio: 16.0 / 9.0,
-                                    child: BetterVideoPlayer(
-                                      configuration:
-                                          const BetterVideoPlayerConfiguration(
-                                        looping: true,
-                                        autoPlay: true,
-                                        allowedScreenSleep: false,
-                                        autoPlayWhenResume: true,
-                                      ),
-                                      controller: BetterVideoPlayerController(),
-                                      dataSource: BetterVideoPlayerDataSource(
-                                        BetterVideoPlayerDataSourceType.file,
-                                        data.path,
-                                      ),
-                                    ),
-                                  );
-                                } else {
-                                  return Container();
-                                }
+                                return Container();
+                                // if (mounted) {
+                                //   return AspectRatio(
+                                //     aspectRatio: 16.0 / 9.0,
+                                //     child: BetterVideoPlayer(
+                                //       configuration:
+                                //           const BetterVideoPlayerConfiguration(
+                                //         looping: true,
+                                //         autoPlay: true,
+                                //         allowedScreenSleep: false,
+                                //         autoPlayWhenResume: true,
+                                //       ),
+                                //       controller: BetterVideoPlayerController(),
+                                //       dataSource: BetterVideoPlayerDataSource(
+                                //         BetterVideoPlayerDataSourceType.file,
+                                //         data.path!,
+                                //       ),
+                                //     ),
+                                //   );
+                                // } else {
+                                //   return Container();
+                                // }
                               }
                             })
                           ],
@@ -145,7 +146,7 @@ class _ExampleState extends State<Example> {
                     onlyImages: true,
                     thumbnailBoxFix: BoxFit.cover,
                     singlePick: _singlePick,
-                    gridViewBackgroundColor: Colors.grey[900],
+                    gridViewBackgroundColor: Colors.grey[900]!,
                     imageBackgroundColor: Colors.black,
                     maxPickImages: 5,
                     appBarHeight: 60,
@@ -235,14 +236,14 @@ class _ExampleState extends State<Example> {
                             /// share
                             GestureDetector(
                               onTap: () async {
-                                List<String> mediaPath = [];
+                                List<XFile> mediaPath = [];
                                 media.pickedFile.map((p) {
                                   setState(() {
-                                    mediaPath.add(p.path);
+                                    mediaPath.add(XFile(p.path!));
                                   });
                                 }).toString();
                                 if (mediaPath.isNotEmpty) {
-                                  await Share.shareFiles(mediaPath);
+                                  await Share.shareXFiles(mediaPath);
                                 }
                                 mediaPath.clear();
                               },
