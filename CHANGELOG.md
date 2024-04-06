@@ -1,3 +1,6 @@
+## 1.0.2
+- Packages updated
+
 ## 1.0.1
 - Packages Updated
 - Supports Null Safety
