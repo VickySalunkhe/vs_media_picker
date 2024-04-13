@@ -14,10 +14,10 @@ dependencies:
     sdk: flutter
   vs_media_picker:
     path: ../
-  provider: ^6.0.5
+  provider: ^6.1.2
   photo_view: ^0.14.0
   # better_video_player: ^1.2.8
-  share_plus: ^6.3.1
+  share_plus: ^8.0.3
 
 dev_dependencies:
   flutter_test:
