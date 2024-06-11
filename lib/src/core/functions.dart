@@ -63,7 +63,7 @@ class GalleryFunctions {
     var result = await PhotoManager.requestPermissionExtend(
         requestOption: const PermissionRequestOption(
             iosAccessLevel: IosAccessLevel.readWrite));
-    if (result.isAuth) {
+    if (result.hasAccess) {
       /// load "recent" album
       provider.setAssetCount();
       PhotoManager.startChangeNotify();
