@@ -1,6 +1,6 @@
 name: vs_media_picker
 description: Customized gallery type view media picker for images and videos.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/VickySalunkhe/vs_media_picker
 
 environment:
