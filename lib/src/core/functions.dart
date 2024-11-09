@@ -62,8 +62,12 @@ class GalleryFunctions {
     /// request for device permission
     var result = await PhotoManager.requestPermissionExtend(
         requestOption: const PermissionRequestOption(
+            androidPermission: AndroidPermission(
+                type: RequestType.image, mediaLocation: false),
             iosAccessLevel: IosAccessLevel.readWrite));
     if (result.isAuth) {
+      print("***************************** result.isAuth IF");
+
       /// load "recent" album
       provider.setAssetCount();
       PhotoManager.startChangeNotify();
@@ -75,6 +79,8 @@ class GalleryFunctions {
         _refreshPathList(setState, provider);
       }
     } else {
+      print("****************************** result.isAuth ELSE ");
+
       /// if result is fail, you can call `PhotoManager.openSetting();`
       /// to open android/ios application's setting to get permission
       PhotoManager.openSetting();
